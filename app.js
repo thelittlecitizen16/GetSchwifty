@@ -70,15 +70,12 @@ function CheckIfGameCorrect()
 
 shuffle();
 
-// while(!CheckIfGameCorrect())
-// {
-//     console.log("board not ok")
-//     shuffle();
-// }
-if(!CheckIfGameCorrect())
+while(!CheckIfGameCorrect())
 {
     console.log("board not ok")
+    shuffle();
 }
+
 
 AddAllCards();
 
@@ -97,16 +94,12 @@ function MoveNumber(card)
     }
    
     for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
-        console.log(document.getElementsByClassName("number")[index].innerText);
         if( document.getElementsByClassName("number")[index].innerText == "")
         {
-            console.log("enter");
-            console.log(index+" "+cardPlace);
             if(index%3==0)
             {
                 if ((index+1)==cardPlace|| (index-3)==cardPlace ||(index+3==cardPlace))
                 {
-                    console.log("enter 2")
                     document.getElementsByClassName("number")[index].innerHTML = number;
                     p.innerHTML = "";
                 }
@@ -116,7 +109,6 @@ function MoveNumber(card)
             {
                 if ((index-1)==cardPlace || (index-3)==cardPlace ||(index+3==cardPlace))
             {
-                console.log("enter 2")
                 document.getElementsByClassName("number")[index].innerHTML = number;
                 p.innerHTML = "";
             }
@@ -126,7 +118,6 @@ function MoveNumber(card)
             {
                 if ((index+1)==cardPlace || (index-1)==cardPlace || (index-3)==cardPlace ||(index+3==cardPlace))
                 {
-                    console.log("enter 2")
                     document.getElementsByClassName("number")[index].innerHTML = number;
                     p.innerHTML = "";
                 }
@@ -166,7 +157,6 @@ function IsWinner()
     if(count==card.length-1)
     {
         document.getElementById("Winner").innerHTML="You Win!";
-        console.log("winner");
     }
 
 }
