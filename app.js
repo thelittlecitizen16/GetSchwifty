@@ -14,14 +14,23 @@ let boardNumbers = numbers;
 
 function AddAllCards(){
     document.getElementById('board').innerHTML = "";
+    let count=0;
+
     numbers.forEach(element => {
-        AddCard(element);
+        AddCard(element,count);
+        count++;
+
+        if (count==boardNumber)
+       {
+        count=0;
+       }
     });
 }
 
-function AddCard(number) {
+function AddCard(number, place) {
     var html = `<div class="col-sm-3 d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
     <div>
+    <p class="place" hidden>${place}</p>
     <p class="number">${number}</p>
     </div>
 </div>`
@@ -31,7 +40,7 @@ function AddCard(number) {
 
 function GetCounter()
 {
-    let counter =0;
+    let counter = 0;
     boardNumbers.forEach(number => {
         for(let i = boardNumbers.indexOf(number) +1 ; i < boardNumbers.length; i++){
             if(number > boardNumbers[i] &&  boardNumbers[i] != "")
@@ -82,13 +91,16 @@ AddAllCards();
 function MoveNumber(card)
 {
     //just if it ok can move
-    let p =card.querySelectorAll("p")[0];
+    let p =card.getElementsByClassName("number")[0];
     let number = p.innerText;
     let cardPlace=0;
+    let place;
+
     for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
         if( document.getElementsByClassName("number")[index].innerText == number)
         {
              cardPlace =index;
+             place=document.getElementsByClassName("place")[index].innerText;
         }
         
     }
@@ -96,18 +108,20 @@ function MoveNumber(card)
     for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
         if( document.getElementsByClassName("number")[index].innerText == "")
         {
-            if(index%3==0)
+            if(document.getElementsByClassName("place")[index].innerText == 0)
             {
-                if ((index+1)==cardPlace|| (index-3)==cardPlace ||(index+3==cardPlace))
+                console.log("place 1");
+                if ((index+1)==cardPlace|| (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
                 {
                     document.getElementsByClassName("number")[index].innerHTML = number;
                     p.innerHTML = "";
                 }
 
             }
-            else if(index+1%3==0)
+            else if(document.getElementsByClassName("place")[index].innerText == boardNumber-1)          
             {
-                if ((index-1)==cardPlace || (index-3)==cardPlace ||(index+3==cardPlace))
+                console.log("place 2");
+                if ((index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
             {
                 document.getElementsByClassName("number")[index].innerHTML = number;
                 p.innerHTML = "";
@@ -116,7 +130,7 @@ function MoveNumber(card)
             }
             else
             {
-                if ((index+1)==cardPlace || (index-1)==cardPlace || (index-3)==cardPlace ||(index+3==cardPlace))
+                if ((index+1)==cardPlace || (index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
                 {
                     document.getElementsByClassName("number")[index].innerHTML = number;
                     p.innerHTML = "";
