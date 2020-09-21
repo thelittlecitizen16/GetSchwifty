@@ -2,4 +2,13 @@
     height: 200px;
     margin-left: 10px;
     margin-bottom: 10px;
+    border: 3px solid red!important;
+}
+
+.addColor{
+    border: 3px solid green!important;
+}
+#Winner{
+    font-weight: bold;
+    font-size: 30px;
 }
