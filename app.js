@@ -1,6 +1,12 @@
 
 let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '' ];
 
+for(let i = numbers.length-1; i > 0; i--){
+    const j = Math.floor(Math.random() * i)
+    const temp = numbers[i]
+    numbers[i] = numbers[j]
+    numbers[j] = temp
+  }
 
 
 function AddAllCards(){
