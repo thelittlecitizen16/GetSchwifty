@@ -20,9 +20,9 @@ function AddAllCards(){
 }
 
 function AddCard(number) {
-    var html = `<div class="col-sm-3 border d-flex justify-content-center text-center Card">
+    var html = `<div class="col-sm-3 border d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
     <div>
-    <p class="title">${number}</p>
+    <p class="number">${number}</p>
     </div>
 </div>`
 
@@ -77,3 +77,21 @@ while(!CheckIfGameCorrect())
 }
 
 AddAllCards();
+
+function MoveNumber(card)
+{
+    let p =card.querySelectorAll("p")[0];
+    let number = p.innerText;
+    console.log(number);
+    console.log(document.getElementsByClassName("number"));
+    for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
+        console.log(document.getElementsByClassName("number")[index].innerText);
+        if( document.getElementsByClassName("number")[index].innerText == "")
+        {
+            console.log("enter");
+            document.getElementsByClassName("number")[index].innerHTML = number;
+        }
+    }
+ 
+    p.innerHTML = "";
+}
