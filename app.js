@@ -38,7 +38,7 @@ function AddCard(number, place) {
     document.getElementById('board').innerHTML += html;
 }
 
-function GetCounter()
+function GetNumberOfInversions()
 {
     let counter = 0;
     boardNumbers.forEach(number => {
@@ -55,7 +55,7 @@ function GetCounter()
 
 function CheckIfGameCorrect()
 {
-    let counter  = GetCounter();
+    let counter  = GetNumberOfInversions();
 
     if(boardNumber %2 == 0)
     {
@@ -78,19 +78,16 @@ function CheckIfGameCorrect()
 
 
 shuffle();
-
 while(!CheckIfGameCorrect())
 {
     console.log("board not ok")
     shuffle();
 }
 
-
 AddAllCards();
 
 function MoveNumber(card)
 {
-    //just if it ok can move
     let p =card.getElementsByClassName("number")[0];
     let number = p.innerText;
     let cardPlace=0;
