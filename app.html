@@ -32,10 +32,16 @@
                     <label id="boardSizeLable">Add board size:</label>
                     <input type="text" name="boardSize" id="boardSize" placeholder="enter board size" onkeyup="loadBoard()">
                 </div>
+                <div class="row content d-flex justify-content-center text-center">
+                    <label id="nameLable" hidden>Add Name:</label>
+                    <input type="text" name="name" id="boardSize" placeholder="name..." onkeyup="loadBoard()" hidden>
+                </div>
             </div>
             <div class="col-sm-12 well" id="board">
             </div>
         </div>
         <script src="app.js"></script>
+        <script src="./src/winnersData.js"></script>
+
      </body>
 </html>
