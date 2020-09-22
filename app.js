@@ -1,6 +1,8 @@
 
 let numbers = [];
 let boardNumber;
+let startDate;
+let endDate;
 function AddNumbers()
 {
     for (let index = 1; index < boardNumber*boardNumber; index++) {
@@ -112,6 +114,7 @@ function CheckIfGameCorrect()
 
 function loadBoard()
 {
+    a=document.getElementById("boardSize").value;
     boardNumber=parseInt(document.getElementById("boardSize").value);
 
     AddNumbers();
@@ -123,6 +126,7 @@ function loadBoard()
     }
     
     AddCard();
+    startDate = Date.now();
     document.getElementById("boardSizeLable").classList.add("hidden");; 
     document.getElementById("boardSize").classList.add("hidden");; 
 }
@@ -209,7 +213,21 @@ function IsWinner()
 
     if(count==card.length-1)
     {
+        endDate = Date.now();
         document.getElementById("Winner").innerHTML="You Win!";
+        document.getElementById("name").classList.add("visible");
+        document.getElementById("name").classList.remove("hidden");
+        document.getElementById("enterWinner").classList.add("visible");
+        document.getElementById("enterWinner").classList.remove("hidden");
     }
 
+}
+
+function AddWinner()
+{
+    let name = document.getElementById("name").value;
+    let gameTime=(endDate - startDate) / 1000;
+    console.log(gameTime);
+    AddNewWin(name,gameTime,boardNumber,startDate);
+    //new game
 }

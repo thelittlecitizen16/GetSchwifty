@@ -36,4 +36,3 @@ class Winner{
       }
 }
 
-AddNewWin("aa","bb","aa","bb");

@@ -15,10 +15,15 @@
     font-weight: bold;
     font-size: 30px;
 }
+
+#board{
+    margin-top: 30px;
+}
 #topbar {
     background-color: black;
     overflow: hidden;
   }
+
   
   .herf{
     display: block;
@@ -28,9 +33,8 @@
     text-decoration: none;
     font-size: 17px;
     float: right;
-
-    
   }
+
   #topbar .herf:hover {
     border-top: 4px solid darkcyan;
   }
@@ -46,4 +50,12 @@
 
   #boardSize{
    /* border: 2px solid mediumvioletred;*/
+  }
+
+  .visible {
+    visibility: visible;
+  }
+  #nameLable{
+    margin-right: 30px;
+    margin-top: 5px;
   }
