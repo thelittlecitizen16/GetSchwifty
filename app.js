@@ -1,6 +1,11 @@
 
-let numbers = ['1', '2', '3', '4', '5', '6', '7', '8', '' ];
-let boardNumber =3;
+let numbers = [];
+let boardNumber = 2;
+for (let index = 1; index < boardNumber*boardNumber; index++) {
+    numbers.push(index);
+}
+numbers.push("");
+
 
 function shuffle(){
     for(let i = numbers.length-1; i > 0; i--){
@@ -10,40 +15,61 @@ function shuffle(){
         numbers[j] = temp
       } 
 }
-let boardNumbers = numbers;
+//let boardNumbers = numbers;
 
 function AddAllCards(){
-    document.getElementById('board').innerHTML = "";
+    //document.getElementById('topbar').innerHTML = "";
     let count=0;
 
-    numbers.forEach(element => {
-        AddCard(element,count);
-        count++;
+    // numbers.forEach(element => {
+    //     AddCard(element,count,numberplace);
+    //     count++;
+    //      numberplace=false;
 
-        if (count==boardNumber)
-       {
-        count=0;
-       }
-    });
+    //     if (count==boardNumber)
+    //    {
+    //     count=0;
+    //    }
+    // });
+    AddCard();
 }
 
-function AddCard(number, place) {
-    var html = `<div class="col-sm-3 d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
-    <div>
-    <p class="place" hidden>${place}</p>
-    <p class="number">${number}</p>
-    </div>
-</div>`
+function AddCard() {
+//     let size =  Math.floor(12/boardNumber);
+//     var html = `<div class="col-sm-${size} d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
+//     <div>
+//     <p class="place" hidden>${place}</p>
+//     <p class="number">${number}</p>
+//     </div>
+// </div>`
 
+//     document.getElementById('board').innerHTML += html;
+
+let place=0;
+var html ="";
+for (let i = 0; i < boardNumber; i++) {
+     html += `<div class="row">`;
+    for (let j = 0; j < boardNumber; j++) {
+        html+=`<div class="col-sm d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
+        <div>
+        <p class="place" hidden>${place}</p>
+        <p class="number">${numbers[place]}</p>
+        </div>
+    </div>`
+    place++;
+    }
+    html+=`</div>`;
+}
     document.getElementById('board').innerHTML += html;
 }
+
 
 function GetNumberOfInversions()
 {
     let counter = 0;
-    boardNumbers.forEach(number => {
-        for(let i = boardNumbers.indexOf(number) +1 ; i < boardNumbers.length; i++){
-            if(number > boardNumbers[i] &&  boardNumbers[i] != "")
+    numbers.forEach(number => {
+        for(let i = numbers.indexOf(number) +1 ; i < numbers.length; i++){
+            if(number > numbers[i] &&  numbers[i] != "")
             {
                 counter++;
             }
@@ -57,10 +83,10 @@ function CheckIfGameCorrect()
 {
     let counter  = GetNumberOfInversions();
 
-    if(boardNumber %2 == 0)
+    if((boardNumber %2) == 0)
     {
-       let place =  numbers.indexOf("") / boardNumber +1 ;
-       if(place+ counter%2==0)
+       let place =  Math.floor(numbers.indexOf("") / boardNumber) +1 ;
+       if((place+ counter)%2==0)
         {
            return true;
         }
@@ -91,45 +117,44 @@ function MoveNumber(card)
     let p =card.getElementsByClassName("number")[0];
     let number = p.innerText;
     let cardPlace=0;
-    let place;
 
     for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
         if( document.getElementsByClassName("number")[index].innerText == number)
         {
              cardPlace =index;
-             place=document.getElementsByClassName("place")[index].innerText;
-        }
-        
+        }   
     }
    
     for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
-        if( document.getElementsByClassName("number")[index].innerText == "")
+        let emptyNumber = document.getElementsByClassName("number")[index];
+     
+        if( emptyNumber.innerHTML == "")
         {
-            if(document.getElementsByClassName("place")[index].innerText == 0)
+            let emptyPlace=document.getElementsByClassName("place")[index].innerText;
+
+            if(emptyPlace == 0)
             {
                 console.log("place 1");
                 if ((index+1)==cardPlace|| (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
                 {
-                    document.getElementsByClassName("number")[index].innerHTML = number;
+                    emptyNumber.innerHTML = number;
                     p.innerHTML = "";
                 }
-
             }
-            else if(document.getElementsByClassName("place")[index].innerText == boardNumber-1)          
+            else if(emptyPlace == boardNumber-1)          
             {
                 console.log("place 2");
                 if ((index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
             {
-                document.getElementsByClassName("number")[index].innerHTML = number;
+                emptyNumber.innerHTML= number;
                 p.innerHTML = "";
             }
-
             }
             else
             {
                 if ((index+1)==cardPlace || (index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
                 {
-                    document.getElementsByClassName("number")[index].innerHTML = number;
+                    emptyNumber .innerHTML= number;
                     p.innerHTML = "";
                 }
             } 
@@ -153,7 +178,7 @@ function IsWinner()
 {
     let card = document.getElementsByClassName("Card");
     let count =0;
-    for (let index = 0; index < card.length; index++) {
+       for (let index = 0; index < document.getElementsByClassName("number").length; index++) {
        if(index+1 == card[index].getElementsByClassName("number")[0].innerText)
        {
         count++;
