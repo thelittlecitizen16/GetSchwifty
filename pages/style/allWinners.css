@@ -1,3 +1,11 @@
+body
+{
+  background-image: url("./image/image.jpg");
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
 
 #topbar {
     background-color: black;
@@ -16,7 +24,7 @@
   }
 
   #topbar .herf:hover {
-    border-top: 4px solid darkcyan;
+    border-top: 4px solid cornflowerblue;
     color: white;
     text-decoration: none;
   }
@@ -49,7 +57,7 @@ th{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: lightpink;
+  background-color: cornflowerblue;
   color: white;
 }
 #enterWinner{
@@ -63,4 +71,10 @@ th{
   margin-right: 10px;
   width: 210px;
 }
+
+h1{
+  color: aliceblue!important;
+}
+
+
  
