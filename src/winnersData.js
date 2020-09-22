@@ -3,10 +3,27 @@ function AddNewWin(name, time, boardSize, startDate)
     let win = new Win(time, boardSize, startDate);
     let allWinners= JSON.parse(localStorage.getItem('allWinners')) || [];
 
+
     if(allWinners.filter(w=>w.name == name).length >0)
      {
-       let objIndex = allWinners.findIndex((w=>w.name == name));
-       allWinners[objIndex].win.push(win);
+         
+        let objIndex = allWinners.findIndex((w=>w.name == name));
+         if(allWinners[objIndex].win.length<5)
+         {
+            allWinners[objIndex].win.push(win);
+         }
+         else
+         {
+            allWinners[objIndex].win.sort((a, b) => a.time - b.time);
+            console.log(time);
+            console.log(allWinners[objIndex].win[0].time );
+
+            if(allWinners[objIndex].win[0].time > time)
+            {
+                allWinners[objIndex].win.splice(0, 1);
+                allWinners[objIndex].win.push(win);
+            }
+         }
      }
      else
      {
