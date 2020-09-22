@@ -200,6 +200,6 @@ function AddWinner()
     let gameTime=(endDate - startDate) /1000;
 
     AddNewWin(name,gameTime,boardNumber,startDate.toString());
-    location.href = "file:///C:/Users/thelittlecitizen16/Desktop/GetSchwifty/app.html";
+    location.href = "file:///C:/Users/thelittlecitizen16/Desktop/GetSchwifty/pages/app.html";
 
 }
