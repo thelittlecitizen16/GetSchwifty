@@ -1,10 +1,14 @@
 
 let numbers = [];
-let boardNumber = 2;
-for (let index = 1; index < boardNumber*boardNumber; index++) {
-    numbers.push(index);
+let boardNumber;
+function AddNumbers()
+{
+    for (let index = 1; index < boardNumber*boardNumber; index++) {
+        numbers.push(index);
+    }
+    numbers.push("");
 }
-numbers.push("");
+
 
 
 function shuffle(){
@@ -15,10 +19,9 @@ function shuffle(){
         numbers[j] = temp
       } 
 }
-//let boardNumbers = numbers;
+
 
 function AddAllCards(){
-    //document.getElementById('topbar').innerHTML = "";
     let count=0;
 
     // numbers.forEach(element => {
@@ -31,7 +34,6 @@ function AddAllCards(){
     //     count=0;
     //    }
     // });
-    AddCard();
 }
 
 function AddCard() {
@@ -46,17 +48,23 @@ function AddCard() {
 //     document.getElementById('board').innerHTML += html;
 
 let place=0;
+let state=0;
 var html ="";
 for (let i = 0; i < boardNumber; i++) {
      html += `<div class="row">`;
     for (let j = 0; j < boardNumber; j++) {
         html+=`<div class="col-sm d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
         <div>
-        <p class="place" hidden>${place}</p>
+        <p class="place" hidden>${state}</p>
         <p class="number">${numbers[place]}</p>
         </div>
     </div>`
     place++;
+    state++;
+    if(state == boardNumber)
+    {
+        state=0;
+    }
     }
     html+=`</div>`;
 }
@@ -102,15 +110,23 @@ function CheckIfGameCorrect()
     }
 }
 
-
-shuffle();
-while(!CheckIfGameCorrect())
+function loadBoard()
 {
-    console.log("board not ok")
+    boardNumber=parseInt(document.getElementById("boardSize").value);
+
+    AddNumbers();
     shuffle();
+    while(!CheckIfGameCorrect())
+    {
+        console.log("board not ok")
+        shuffle();
+    }
+    
+    AddCard();
+    document.getElementById("boardSizeLable").classList.add("hidden");; 
+    document.getElementById("boardSize").classList.add("hidden");; 
 }
 
-AddAllCards();
 
 function MoveNumber(card)
 {
@@ -135,7 +151,7 @@ function MoveNumber(card)
             if(emptyPlace == 0)
             {
                 console.log("place 1");
-                if ((index+1)==cardPlace|| (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
+                if ((index+1)==cardPlace|| (index-boardNumber)==cardPlace ||(index+boardNumber)==cardPlace)
                 {
                     emptyNumber.innerHTML = number;
                     p.innerHTML = "";
@@ -144,15 +160,16 @@ function MoveNumber(card)
             else if(emptyPlace == boardNumber-1)          
             {
                 console.log("place 2");
-                if ((index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
-            {
+
+                if ((index-1)==cardPlace|| (index-boardNumber)==cardPlace ||(index+boardNumber)==cardPlace)
+                {
                 emptyNumber.innerHTML= number;
                 p.innerHTML = "";
-            }
+                }
             }
             else
             {
-                if ((index+1)==cardPlace || (index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber==cardPlace))
+                if ((index+1)==cardPlace || (index-1)==cardPlace || (index-boardNumber)==cardPlace ||(index+boardNumber)==cardPlace)
                 {
                     emptyNumber .innerHTML= number;
                     p.innerHTML = "";

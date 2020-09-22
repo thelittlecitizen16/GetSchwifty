@@ -12,27 +12,29 @@
                 <div class="col-sm-12 well" id="topbar">
                         <a id="logo"></a>
                         <a class="herf" class="right" href="#my work">דף בית</a>
-                        <a class="herf" class="right" href="#about">אודות</a>
-                        <a class="herf" class="right" href="#about">כלי נגינה</a>
-                        <a class="herf" class="right" href="#home">הפרטים שלי</a>
-                        <a class="herf" class="right" href="#home">ההזמנות שלי</a>
-                        <a class="left" href="#signout">התנתק</a>
+                        <a class="herf" class="right" href="#about">משחק</a>
+                        <a class="herf" class="right" href="#about">ניצחונות</a>
                       </div>
                 <div class="col-sm-2 well">
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row content"> <div class="col-sm-12 well" id="topbar">
+            <div class="row content"> 
+                <div class="col-sm-12 well">
                 <div class="row content d-flex justify-content-center text-center">
                     <h1>Schwifty Game</h1>
                 </div>
                 <div class="row content d-flex justify-content-center text-center">
                     <p id= "Winner"></p>
                 </div>
-            </div>
-                <div class="col-sm-12 well" id="board">
+                <div class="row content d-flex justify-content-center text-center">
+                    <label id="boardSizeLable">Add board size:</label>
+                    <input type="text" name="boardSize" id="boardSize" placeholder="enter board size" onkeyup="loadBoard()">
                 </div>
+            </div>
+            <div class="col-sm-12 well" id="board">
+            </div>
         </div>
         <script src="app.js"></script>
      </body>
