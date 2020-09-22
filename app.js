@@ -126,7 +126,7 @@ function loadBoard()
     }
     
     AddCard();
-    startDate = Date.now();
+    startDate = new Date();
     document.getElementById("boardSizeLable").classList.add("hidden");; 
     document.getElementById("boardSize").classList.add("hidden");; 
 }
@@ -213,7 +213,7 @@ function IsWinner()
 
     if(count==card.length-1)
     {
-        endDate = Date.now();
+        endDate = new Date();
         document.getElementById("Winner").innerHTML="You Win!";
         document.getElementById("name").classList.add("visible");
         document.getElementById("name").classList.remove("hidden");
@@ -226,8 +226,8 @@ function IsWinner()
 function AddWinner()
 {
     let name = document.getElementById("name").value;
-    let gameTime=(endDate - startDate) / 1000;
-    console.log(gameTime);
-    AddNewWin(name,gameTime,boardNumber,startDate);
+    let gameTime=(endDate - startDate) /1000;
+
+    AddNewWin(name,gameTime,boardNumber,startDate.toString());
     //new game
 }

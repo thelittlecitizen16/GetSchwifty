@@ -50,4 +50,15 @@ th{
   background-color: lightpink;
   color: white;
 }
+#enterWinner{
+  background-color: black;
+  color: white;
+  border: black;
+}
+
+#name
+{
+  margin-right: 10px;
+  width: 210px;
+}
  
