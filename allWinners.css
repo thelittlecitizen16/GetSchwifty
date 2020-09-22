@@ -17,6 +17,8 @@
 
   #topbar .herf:hover {
     border-top: 4px solid darkcyan;
+    color: white;
+    text-decoration: none;
   }
 
   .hidden{

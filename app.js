@@ -3,6 +3,7 @@ let numbers = [];
 let boardNumber;
 let startDate;
 let endDate;
+
 function AddNumbers()
 {
     for (let index = 1; index < boardNumber*boardNumber; index++) {
@@ -10,8 +11,6 @@ function AddNumbers()
     }
     numbers.push("");
 }
-
-
 
 function shuffle(){
     for(let i = numbers.length-1; i > 0; i--){
@@ -22,36 +21,11 @@ function shuffle(){
       } 
 }
 
-
-function AddAllCards(){
-    let count=0;
-
-    // numbers.forEach(element => {
-    //     AddCard(element,count,numberplace);
-    //     count++;
-    //      numberplace=false;
-
-    //     if (count==boardNumber)
-    //    {
-    //     count=0;
-    //    }
-    // });
-}
-
 function AddCard() {
-//     let size =  Math.floor(12/boardNumber);
-//     var html = `<div class="col-sm-${size} d-flex justify-content-center text-center Card" onclick="MoveNumber(this)">
-//     <div>
-//     <p class="place" hidden>${place}</p>
-//     <p class="number">${number}</p>
-//     </div>
-// </div>`
-
-//     document.getElementById('board').innerHTML += html;
-
 let place=0;
 let state=0;
 var html ="";
+
 for (let i = 0; i < boardNumber; i++) {
      html += `<div class="row">`;
     for (let j = 0; j < boardNumber; j++) {
@@ -63,10 +37,7 @@ for (let i = 0; i < boardNumber; i++) {
     </div>`
     place++;
     state++;
-    if(state == boardNumber)
-    {
-        state=0;
-    }
+    if(state == boardNumber) { state=0;}
     }
     html+=`</div>`;
 }
@@ -229,5 +200,6 @@ function AddWinner()
     let gameTime=(endDate - startDate) /1000;
 
     AddNewWin(name,gameTime,boardNumber,startDate.toString());
-    //new game
+    location.href = "file:///C:/Users/thelittlecitizen16/Desktop/GetSchwifty/app.html";
+
 }

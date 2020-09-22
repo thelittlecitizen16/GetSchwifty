@@ -37,6 +37,8 @@
 
   #topbar .herf:hover {
     border-top: 4px solid darkcyan;
+    color: white;
+    text-decoration: none;
   }
 
   .hidden{
@@ -47,11 +49,6 @@
     margin-right: 15px;
     font-size: 25px;
   }
-
-  #boardSize{
-   /* border: 2px solid mediumvioletred;*/
-  }
-
   .visible {
     visibility: visible;
   }
