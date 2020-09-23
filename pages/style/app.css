@@ -1,0 +1,85 @@
+body
+{
+  background-image: url("./image/image.jpg");
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.Card{
+    height: 200px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-size: 40px;
+    background-color: lightsteelblue!important;
+    border: 3px solid lightsteelblue!important;
+}
+
+.addColor{
+    background-color: cornflowerblue!important;
+    border: cornflowerblue!important;
+}
+#Winner{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+#board{
+    margin-top: 30px;
+}
+#topbar {
+    background-color: black;
+    overflow: hidden;
+  }
+
+  
+  .herf{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    float: right;
+  }
+
+  #topbar .herf:hover {
+    border-top: 4px solid cornflowerblue;
+    color: white;
+    text-decoration: none;
+  }
+
+  .hidden{
+      visibility: hidden;
+  }
+
+  #boardSizeLable{
+    margin-right: 15px;
+    font-size: 25px;
+  }
+  .visible {
+    visibility: visible;
+  }
+  #nameLable{
+    margin-right: 30px;
+    margin-top: 5px;
+  }
+
+  #enterWinner{
+    background-color: black;
+    color: white;
+    border: black;
+  }
+  
+  #name
+  {
+    margin-right: 10px;
+    width: 210px;
+  }
+
+  h1,label, #Winner{
+    color: aliceblue!important;
+    font-family: "Times New Roman", Times, serif!important;
+    font-weight: bold!important;
+  }
