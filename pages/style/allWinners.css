@@ -1,0 +1,82 @@
+body
+{
+  background-image: url("./image/image.jpg");
+  height: 100%;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;}
+
+#topbar {
+    background-color: black;
+    overflow: hidden;
+  }
+
+  
+  .herf{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    float: right;
+  }
+
+  #topbar .herf:hover {
+    border-top: 4px solid cornflowerblue;
+    color: white;
+    text-decoration: none;
+  }
+
+  .hidden{
+   
+    visibility: hidden;
+  }
+
+  #data{
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    text-align:center;
+    margin-top: 30px;
+  }
+
+td{
+    border: 1px solid #f2f2f2;
+    padding: 8px;
+  }
+th{
+    border: 1px solid #f2f2f2;
+    padding: 8px;
+  }
+
+
+
+#data th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: cornflowerblue;
+  color: white;
+}
+#enterWinner{
+  background-color: black;
+  color: white;
+  border: black;
+}
+
+#name
+{
+  margin-right: 10px;
+  width: 210px;
+}
+
+h1{
+  color: aliceblue!important;
+  font-family: "Times New Roman", Times, serif!important;
+  font-weight: bold!important;
+}
+
+
+ 
