@@ -80,4 +80,6 @@ body
 
   h1,label, #Winner{
     color: aliceblue!important;
+    font-family: "Times New Roman", Times, serif!important;
+    font-weight: bold!important;
   }
